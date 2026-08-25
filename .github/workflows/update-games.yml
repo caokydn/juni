@@ -1,9 +1,18 @@
+# =====================================================
+# 1. Vào GitHub → mở repository juni
+# 2. Bấm Add file → Create new file.
+# 3. Tên file:
+# .github/workflows/update-games.yml
+# 4. Copy code dưới đây vào file YAML
+# =====================================================
+
+
 name: Update Games JSON
 
 on:
   schedule:
-    # Chạy mỗi 30 phút
-    - cron: "*/30 * * * *"
+    # Chạy mỗi 10 phút
+    - cron: "*/10 * * * *"
 
   # Cho phép chạy thủ công bằng nút Run workflow
   workflow_dispatch:
