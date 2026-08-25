@@ -1210,81 +1210,7 @@ let currentBook = null;
    FETCH ALL REPOSITORIES
 ===================================================== */
 
-async function fetchAllRepos(){
 
-    let repos = [];
-
-
-    for(
-        let page = 1;
-        page <= 20;
-        page++
-    ){
-
-        try{
-
-            const response = await fetch(
-
-                `https://api.github.com/users/` +
-                `${USERNAME}/repos?` +
-                `per_page=100&` +
-                `page=${page}`
-
-            );
-
-
-            if(!response.ok){
-
-                console.log(
-                    "GitHub Error:",
-                    response.status
-                );
-
-                break;
-
-            }
-
-
-            const data =
-                await response.json();
-
-
-            if(!Array.isArray(data)){
-
-                console.log(
-                    "Invalid GitHub data"
-                );
-
-                break;
-
-            }
-
-
-            if(data.length === 0){
-
-                break;
-
-            }
-
-
-            repos =
-                repos.concat(data);
-
-        }
-        catch(error){
-
-            console.error(error);
-
-            break;
-
-        }
-
-    }
-
-
-    return repos;
-
-}
 
 
 /* =====================================================
@@ -2175,59 +2101,58 @@ async function load(){
 
     try{
 
-        allRepos =
-            await fetchAllRepos();
+        /*
+            Đọc danh sách repository
+            từ games.json
+
+            Không gọi GitHub API.
+        */
+
+        const response =
+            await fetch(
+                "games.json?t=" +
+                Date.now()
+            );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "Cannot load games.json"
+            );
+
+        }
+
+
+        const data =
+            await response.json();
 
 
         /*
-            Chỉ lấy repo public.
+            games.json chỉ chứa
+            tên repository.
+
+            Chuyển thành dạng:
+
+            {
+                name: "funstarter124"
+            }
+
+            để phần code cũ
+            có thể tiếp tục sử dụng.
         */
 
         allRepos =
-            allRepos.filter(
-                repo => {
-
-                    if(
-                        !repo ||
-                        !repo.name
-                    ){
-
-                        return false;
-
-                    }
-
-
-                    if(repo.private){
-
-                        return false;
-
-                    }
-
-
-                    /*
-                        Bỏ repository chính
-                        của GitHub Pages.
-                    */
-
-                    if(
-                        repo.name
-                            .toLowerCase() ===
-                        `${USERNAME}.github.io`
-                    ){
-
-                        return false;
-
-                    }
-
-
-                    return true;
-
-                }
+            data.map(
+                name => ({
+                    name:name,
+                    private:false
+                })
             );
 
 
         /*
-            Hiển thị sách.
+            Hiển thị danh sách sách.
         */
 
         showBooks();
