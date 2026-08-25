@@ -1,0 +1,134 @@
+name: Update Games JSON
+
+on:
+  schedule:
+    # Chạy mỗi 30 phút
+    - cron: "*/30 * * * *"
+
+  # Cho phép chạy thủ công bằng nút Run workflow
+  workflow_dispatch:
+
+jobs:
+  update-games:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+
+      # ==========================================
+      # 1. Lấy repository juni
+      # ==========================================
+      - name: Checkout
+        uses: actions/checkout@v4
+
+
+      # ==========================================
+      # 2. Lấy danh sách repository của caokydn
+      # ==========================================
+      - name: Get repositories
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+
+          python - <<'PY'
+
+          import json
+          import urllib.request
+
+          username = "caokydn"
+
+          repos = []
+
+          page = 1
+
+          while True:
+
+              url = (
+                  f"https://api.github.com/users/"
+                  f"{username}/repos"
+                  f"?per_page=100&page={page}"
+              )
+
+              request = urllib.request.Request(
+                  url,
+                  headers={
+                      "Accept": "application/vnd.github+json"
+                  }
+              )
+
+              with urllib.request.urlopen(request) as response:
+
+                  data = json.load(response)
+
+              if not data:
+                  break
+
+              for repo in data:
+
+                  # Chỉ lấy repository public
+                  if not repo.get("private", False):
+
+                      repos.append(
+                          repo["name"]
+                      )
+
+              page += 1
+
+          # Sắp xếp theo tên
+          repos.sort(
+              key=lambda x: x.lower()
+          )
+
+          # Ghi games.json
+          with open(
+              "games.json",
+              "w",
+              encoding="utf-8"
+          ) as file:
+
+              json.dump(
+                  repos,
+                  file,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+          print(
+              f"Found {len(repos)} repositories."
+          )
+
+          PY
+
+
+      # ==========================================
+      # 3. Kiểm tra games.json
+      # ==========================================
+      - name: Show games.json
+        run: |
+          echo "================================"
+          echo "games.json"
+          echo "================================"
+
+          cat games.json
+
+
+      # ==========================================
+      # 4. Commit nếu games.json có thay đổi
+      # ==========================================
+      - name: Commit changes
+        run: |
+
+          git config user.name "github-actions[bot]"
+
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add games.json
+
+          git diff --cached --quiet || \
+            git commit \
+            -m "Update games.json"
+
+          git push
