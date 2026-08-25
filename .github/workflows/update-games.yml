@@ -4,6 +4,30 @@
 # 3. Tên file:
 # .github/workflows/update-games.yml
 # 4. Copy code dưới đây vào file YAML
+
+
+#workflow_dispatch chính là cho phép bạn bấm nút chạy thủ công.
+
+#Cách chạy ngay
+
+#Vào repository:
+
+#caokydn/juni → Actions
+
+#Sau đó:
+
+#Chọn workflow Update Games JSON ở bên trái.
+#Bấm Run workflow ở bên phải.
+#Nếu hiện lựa chọn branch, để nguyên branch chính (main).
+#Bấm Run workflow màu xanh.
+#Chờ workflow chạy xong, dấu ✓ màu xanh.
+
+#Sau đó quay lại trang Code của repo juni, bạn sẽ thấy:
+
+#games.json
+
+#GitHub Actions sẽ tự commit file này vào repo.
+
 # =====================================================
 
 
