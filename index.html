@@ -1,0 +1,2315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Junior English - Game Hub</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body{
+
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f9d976,
+            #f39f86
+        );
+
+    color:#0f172a;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   HEADER - JUNI ENGLISH BRAND
+===================================================== */
+
+.header{
+
+    width:100%;
+
+    padding:11px 10px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fcd34d,
+            #f87171
+        );
+
+    color:white;
+
+    box-shadow:
+        0 2px 7px rgba(0,0,0,0.20);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+}
+
+
+.brand{
+
+    font-size:23px;
+
+    font-weight:800;
+
+    letter-spacing:.2px;
+}
+
+
+.location{
+
+    margin-top:3px;
+
+    font-size:13px;
+
+    font-weight:500;
+
+    opacity:.95;
+}
+
+
+/* =====================================================
+   MAIN PAGE
+===================================================== */
+
+.page{
+
+    width:100%;
+
+    max-width:800px;
+
+    margin:auto;
+
+    padding:18px 12px 30px;
+}
+
+
+/* =====================================================
+   PAGE TITLE
+===================================================== */
+
+.page-title{
+
+    text-align:center;
+
+    margin-bottom:18px;
+}
+
+
+.page-title h1{
+
+    font-size:25px;
+
+    font-weight:800;
+
+    color:#2563eb;;
+}
+
+
+.page-title p{
+
+    margin-top:5px;
+
+    font-size:14px;
+
+    color:#334155;
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back-btn{
+
+    border:none;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:6px;
+
+    padding:9px 15px;
+
+    margin-bottom:12px;
+
+    border-radius:12px;
+
+    background:white;
+
+    color:#0f172a;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 3px 8px rgba(0,0,0,0.15);
+
+    transition:
+        transform .15s,
+        box-shadow .15s,
+        background .15s;
+}
+
+
+.back-btn:hover{
+
+    background:#f8fafc;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 5px 12px rgba(0,0,0,0.18);
+}
+
+
+.back-btn:active{
+
+    transform:scale(.97);
+}
+
+
+/* =====================================================
+   BOOK LIST
+===================================================== */
+
+.book-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:11px;
+}
+
+
+/* =====================================================
+   BOOK BUTTON
+===================================================== */
+
+.book-btn{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:15px;
+
+    padding:16px 17px;
+
+    background:white;
+
+    color:#0f172a;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.13);
+
+    transition:
+        transform .15s,
+        box-shadow .15s;
+}
+
+
+.book-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 7px 15px rgba(0,0,0,0.18);
+}
+
+
+.book-btn:active{
+
+    transform:scale(.98);
+}
+
+
+.book-icon{
+
+    width:43px;
+
+    height:43px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a5f3fc,
+            #67e8f9
+        );
+
+    font-size:24px;
+}
+
+
+.book-name{
+
+    flex:1;
+
+    font-size:17px;
+
+    font-weight:750;
+}
+
+
+.book-arrow{
+
+    font-size:25px;
+
+    color:#94a3b8;
+}
+
+
+/* =====================================================
+   BOOK TITLE
+===================================================== */
+
+.book-title{
+
+    padding:14px 16px;
+
+    margin-bottom:12px;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a5f3fc,
+            #fbbfbc
+        );
+
+    color:#0f172a;
+
+    font-size:20px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 3px 8px rgba(0,0,0,0.12);
+}
+
+
+/* =====================================================
+   UNIT LIST
+===================================================== */
+
+.unit-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+}
+
+
+/* =====================================================
+   UNIT ROW
+===================================================== */
+
+.unit-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    min-height:49px;
+
+    padding:8px 9px;
+
+    background:white;
+
+    border-radius:11px;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,0.10);
+}
+
+
+/* =====================================================
+   UNIT NAME
+===================================================== */
+
+.unit-name{
+
+    width:78px;
+
+    flex-shrink:0;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    color:#334155;
+
+    white-space:nowrap;
+}
+
+
+/* =====================================================
+   EXERCISE BUTTONS
+===================================================== */
+
+.exercise-buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:6px;
+}
+
+
+/* =====================================================
+   EXERCISE BUTTON
+===================================================== */
+
+.exercise-btn{
+
+    width:33px;
+
+    height:33px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:9px;
+
+    text-decoration:none;
+
+    background:#34d399;
+
+    color:#0f172a;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 2px 4px rgba(0,0,0,0.14);
+
+    transition:
+        transform .15s,
+        background .15s,
+        box-shadow .15s;
+}
+
+
+.exercise-btn:hover{
+
+    background:#22c55e;
+
+    transform:
+        translateY(-2px)
+        scale(1.05);
+
+    box-shadow:
+        0 4px 8px rgba(0,0,0,0.18);
+}
+
+
+.exercise-btn:active{
+
+    transform:scale(.94);
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading{
+
+    text-align:center;
+
+    padding:40px 10px;
+
+    color:#334155;
+
+    font-size:16px;
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.empty{
+
+    text-align:center;
+
+    padding:25px 15px;
+
+    background:white;
+
+    border-radius:12px;
+
+    color:#64748b;
+
+    box-shadow:
+        0 3px 8px rgba(0,0,0,0.10);
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error{
+
+    text-align:center;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    background:#fee2e2;
+
+    color:#b91c1c;
+
+    font-weight:600;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    padding:10px;
+
+    font-size:12px;
+
+    color:#334155;
+
+    opacity:.8;
+}
+
+/* =====================================================
+   WELCOME + LOGIN
+===================================================== */
+
+#welcome-screen{
+
+    position:fixed;
+    inset:0;
+    z-index:9999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            #fde68a 0%,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 25%,
+            #fca5a5 0%,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            #93c5fd 0%,
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #fbbf24,
+            #fb7185,
+            #60a5fa
+        );
+
+    padding:20px;
+
+    overflow:hidden;
+}
+
+
+/* =====================================================
+   LOGIN CARD
+===================================================== */
+
+.welcome-box{
+
+    width:100%;
+    max-width:430px;
+
+    padding:35px 30px 30px;
+
+    background:rgba(255,255,255,.94);
+
+    border-radius:28px;
+
+    text-align:center;
+
+    box-shadow:
+        0 20px 50px rgba(15,23,42,.25);
+
+    border:
+        4px solid rgba(255,255,255,.75);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+/* màu trang trí phía trên */
+
+.welcome-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #facc15,
+            #fb7185,
+            #60a5fa,
+            #34d399
+        );
+}
+
+
+/* =====================================================
+   WELCOME TITLE
+===================================================== */
+
+.welcome-box h1{
+
+    margin-top:8px;
+
+    font-size:29px;
+
+    font-weight:900;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f97316,
+            #ec4899,
+            #2563eb
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+
+.welcome-box p{
+
+    margin-top:10px;
+
+    font-size:15px;
+
+    color:#64748b;
+
+    font-weight:500;
+}
+
+
+/* =====================================================
+   LOGIN FORM
+===================================================== */
+
+.login-form{
+
+    margin-top:28px;
+
+    padding-top:25px;
+
+    border-top:
+        1px solid #e2e8f0;
+}
+
+
+.login-form h2{
+
+    font-size:21px;
+
+    color:#2563eb;
+
+    margin-bottom:3px;
+
+    font-weight:800;
+}
+
+
+.login-form input{
+
+    width:100%;
+
+    margin-top:16px;
+
+    padding:14px 16px;
+
+    border:
+        2px solid #dbeafe;
+
+    border-radius:14px;
+
+    background:#f8fafc;
+
+    color:#0f172a;
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:
+        border .2s,
+        box-shadow .2s,
+        background .2s;
+}
+
+
+.login-form input:focus{
+
+    border-color:#60a5fa;
+
+    background:white;
+
+    box-shadow:
+        0 0 0 4px rgba(96,165,250,.18);
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+.login-form button{
+
+    width:100%;
+
+    margin-top:13px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed,
+            #ec4899
+        );
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 6px 14px rgba(37,99,235,.25);
+
+    transition:
+        transform .15s,
+        box-shadow .15s;
+}
+
+
+.login-form button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 9px 18px rgba(37,99,235,.30);
+}
+
+
+.login-form button:active{
+
+    transform:scale(.97);
+}
+
+
+/* =====================================================
+   LOGIN ERROR
+===================================================== */
+
+.login-error{
+
+    margin-top:10px;
+
+    min-height:20px;
+
+    color:#dc2626;
+
+    font-size:14px;
+
+    font-weight:700;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:500px){
+
+    .page{
+
+        padding:
+            15px
+            8px
+            25px;
+    }
+
+
+    .brand{
+
+        font-size:20px;
+    }
+
+
+    .location{
+
+        font-size:12px;
+    }
+
+
+    .page-title h1{
+
+        font-size:23px;
+    }
+
+
+    .book-name{
+
+        font-size:16px;
+    }
+
+
+    .unit-row{
+
+        gap:7px;
+
+        padding:7px;
+    }
+
+
+    .unit-name{
+
+        width:65px;
+
+        font-size:13px;
+    }
+
+
+    .exercise-buttons{
+
+        gap:5px;
+    }
+
+
+    .exercise-btn{
+
+        width:31px;
+
+        height:31px;
+
+        border-radius:8px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<!-- =====================================================
+     WELCOME SCREEN
+===================================================== -->
+
+<!-- =====================================================
+     WELCOME + LOGIN
+===================================================== -->
+
+<div id="welcome-screen">
+
+    <div class="welcome-box">
+
+        <h1>Welcome to JUNI English</h1>
+
+        <p>
+            113 Lê Trọng Tấn, Đà Nẵng, Điện thoại: 0935.994359
+        </p>
+
+        <div class="login-form">
+
+            <h2>Teacher Login</h2>
+
+
+
+<input
+    type="text"
+    id="usernameInput"
+    placeholder="Enter username"
+    autocomplete="off"
+    onkeydown="if(event.key === 'Enter') login();"
+>
+
+
+            <button onclick="login()">
+                Login
+            </button>
+
+            <div
+                id="loginError"
+                class="login-error"
+            ></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     JUNI ENGLISH HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="brand">
+        🎉 JUNI English 🎉
+    </div>
+
+    <div class="location">
+        113 Lê Trọng Tấn, Đà Nẵng
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="page">
+
+
+    <div class="page-title">
+
+        <h1>
+            🎮 JUNI English TEACHER
+        </h1>
+
+        <p id="subtitle">
+            Choose a book
+        </p>
+
+    </div>
+
+
+    <div id="content">
+
+        <div class="loading">
+            Loading games...
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+
+        JUNI English • Learning through games 🎈
+
+    </div>
+
+
+</main>
+
+
+
+<script>
+
+/* =====================================================
+   SETTINGS
+===================================================== */
+
+
+/*
+    GitHub username
+*/
+
+const USERNAME = "caokydn";
+
+
+/* =====================================================
+   LOGIN TEACHERNAMES
+===================================================== */
+
+const TEACHERNAMES = [
+    "ck",
+"ky",
+"caoky",
+"ha",
+"ngocha",
+"gao",
+"kyhan",
+    "thien28",
+    "oanh152",
+    "tien1",
+    "jess",
+    "jessica",
+    "uyen171"
+];
+
+
+/* =====================================================
+   WELCOME → LOGIN
+===================================================== */
+
+
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+function login(){
+
+    const input =
+        document
+            .getElementById("usernameInput")
+            .value
+            .trim();
+
+    const error =
+        document
+            .getElementById("loginError");
+
+
+    if(!input){
+
+        error.innerText =
+            "Please enter your username.";
+
+        return;
+
+    }
+
+
+if(
+    !TEACHERNAMES.some(
+        username =>
+            username.toLowerCase() ===
+            input.toLowerCase()
+    )
+){
+
+    error.innerText =
+        "Invalid username.";
+
+    return;
+
+}
+
+
+    /*
+       Login successful
+    */
+
+document
+    .getElementById("welcome-screen")
+    .style.display = "none";
+
+history.pushState(
+    { page: "books" },
+    "",
+    "#books"
+);
+
+load();
+
+}
+
+
+/*
+    =====================================================
+    DANH SÁCH SÁCH
+    =====================================================
+
+    code:
+        Phải giống phần đầu của tên repo.
+
+    name:
+        Tên hiển thị trên Home2.
+
+
+    Ví dụ:
+
+    funstarter124
+
+    code = funstarter
+
+    Unit = 12
+
+    Exercise = 4
+*/
+
+
+const BOOKS = [
+    {
+        code: "kid",
+        name: "Family and Friends 0 - Starter"
+    },
+
+    {
+        code: "1ff",
+        name: "Family and Friends 1"
+    },
+
+    {
+        code: "2ff",
+        name: "Family and Friends 2"
+    },
+
+    {
+        code: "3ff",
+        name: "Family and Friends 3"
+    },
+
+    {
+        code: "4ff",
+        name: "Family and Friends 4"
+    },
+
+    {
+        code: "funstarter",
+        name: "Fun for Starters"
+    }
+
+];
+
+
+/*
+    Số bài tập hợp lệ.
+
+    Vì bài tập luôn là ký tự cuối
+    nên không cần quy định số Unit.
+*/
+
+const MIN_EXERCISE = 1;
+
+const MAX_EXERCISE = 6;
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let allRepos = [];
+
+let currentBook = null;
+
+
+/* =====================================================
+   FETCH ALL REPOSITORIES
+===================================================== */
+
+async function fetchAllRepos(){
+
+    let repos = [];
+
+
+    for(
+        let page = 1;
+        page <= 20;
+        page++
+    ){
+
+        try{
+
+            const response = await fetch(
+
+                `https://api.github.com/users/` +
+                `${USERNAME}/repos?` +
+                `per_page=100&` +
+                `page=${page}`
+
+            );
+
+
+            if(!response.ok){
+
+                console.log(
+                    "GitHub Error:",
+                    response.status
+                );
+
+                break;
+
+            }
+
+
+            const data =
+                await response.json();
+
+
+            if(!Array.isArray(data)){
+
+                console.log(
+                    "Invalid GitHub data"
+                );
+
+                break;
+
+            }
+
+
+            if(data.length === 0){
+
+                break;
+
+            }
+
+
+            repos =
+                repos.concat(data);
+
+        }
+        catch(error){
+
+            console.error(error);
+
+            break;
+
+        }
+
+    }
+
+
+    return repos;
+
+}
+
+
+/* =====================================================
+   PARSE REPOSITORY NAME
+===================================================== */
+
+
+/*
+    QUY TẮC MỚI:
+
+    REPO = BOOK CODE + UNIT + EXERCISE
+
+
+    Ví dụ:
+
+    funstarter124
+
+    ├── funstarter = BOOK
+    ├── 12          = UNIT
+    └── 4           = EXERCISE
+
+
+    Ví dụ:
+
+    funstarter91
+
+    ├── funstarter
+    ├── 9
+    └── 1
+
+
+    Ví dụ:
+
+    funstarter301
+
+    ├── funstarter
+    ├── 30
+    └── 1
+
+
+    Ví dụ:
+
+    funstarter10a1
+
+    ├── funstarter
+    ├── 10a
+    └── 1
+
+
+    Ví dụ:
+
+    funstarter10b2
+
+    ├── funstarter
+    ├── 10b
+    └── 2
+
+
+    QUAN TRỌNG:
+
+    - Không giới hạn Unit.
+    - Không cần biết Unit có 9, 15, 30 hay 50.
+    - Exercise luôn là ký tự cuối.
+*/
+
+
+function parseRepo(
+    repoName,
+    bookCode
+){
+
+    /*
+        Kiểm tra tên repo có bắt đầu
+        chính xác bằng bookCode không.
+    */
+
+    if(
+        !repoName
+            .toLowerCase()
+            .startsWith(
+                bookCode.toLowerCase()
+            )
+    ){
+
+        return null;
+
+    }
+
+
+    /*
+        Cắt tên sách ở đầu.
+    */
+
+    const middle =
+        repoName.slice(
+            bookCode.length
+        );
+
+
+    /*
+        Phải còn ít nhất 2 ký tự:
+
+        Unit + Exercise
+    */
+
+    if(middle.length < 2){
+
+        return null;
+
+    }
+
+
+    /*
+        Ký tự cuối cùng
+        luôn là Exercise.
+    */
+
+    const lastChar =
+        middle.slice(-1);
+
+
+    /*
+        Chỉ nhận Exercise 1-6.
+    */
+
+    if(
+        !/^[1-6]$/.test(
+            lastChar
+        )
+    ){
+
+        return null;
+
+    }
+
+
+    const exercise =
+        parseInt(
+            lastChar,
+            10
+        );
+
+
+    /*
+        Phần ở giữa
+        chính là Unit.
+    */
+
+    const unit =
+        middle.slice(
+            0,
+            -1
+        );
+
+
+    /*
+        Unit không được rỗng.
+    */
+
+    if(!unit){
+
+        return null;
+
+    }
+
+
+    /*
+        Unit phải bắt đầu bằng số.
+
+        Cho phép:
+
+        1
+        9
+        15
+        30
+        50
+        10a
+        10b
+        25a
+        ...
+    */
+
+    if(
+        !/^\d+[a-z]*$/i.test(
+            unit
+        )
+    ){
+
+        return null;
+
+    }
+
+
+    /*
+        Lấy phần số của Unit
+        để sắp xếp.
+
+        Ví dụ:
+
+        10a → 10
+        10b → 10
+        30  → 30
+    */
+
+    const numberMatch =
+        unit.match(
+            /^\d+/
+        );
+
+
+    const unitNumber =
+        numberMatch
+            ? parseInt(
+                numberMatch[0],
+                10
+            )
+            : 0;
+
+
+    return {
+
+        repo:repoName,
+
+        unit:unit,
+
+        unitNumber:unitNumber,
+
+        exercise:exercise
+
+    };
+
+}
+
+
+/* =====================================================
+   SORT UNITS
+===================================================== */
+
+
+/*
+    Ví dụ:
+
+    1
+    2
+    9
+    10
+    10a
+    10b
+    11
+    30
+    50
+*/
+
+
+function sortUnits(a,b){
+
+    /*
+        Trước tiên so sánh số.
+    */
+
+    if(
+        a.unitNumber !==
+        b.unitNumber
+    ){
+
+        return (
+            a.unitNumber -
+            b.unitNumber
+        );
+
+    }
+
+
+    /*
+        Nếu cùng số:
+
+        10
+        10a
+        10b
+
+        Unit không có chữ
+        sẽ đứng trước.
+    */
+
+    return a.unit.localeCompare(
+        b.unit,
+        undefined,
+        {
+            numeric:true,
+            sensitivity:"base"
+        }
+    );
+
+}
+
+
+/* =====================================================
+   SHOW BOOK LIST
+===================================================== */
+
+function showBooks(){
+
+    currentBook = null;
+
+
+    document.getElementById(
+        "subtitle"
+    ).innerText =
+        "Choose a book";
+
+
+    const content =
+        document.getElementById(
+            "content"
+        );
+
+
+    content.innerHTML = "";
+
+
+    const bookList =
+        document.createElement(
+            "div"
+        );
+
+
+    bookList.className =
+        "book-list";
+
+
+    BOOKS.forEach(book => {
+
+
+        /*
+            Kiểm tra sách có repo hợp lệ.
+        */
+
+        const hasGames =
+            allRepos.some(
+                repo => {
+
+                    if(
+                        !repo ||
+                        !repo.name
+                    ){
+
+                        return false;
+
+                    }
+
+
+                    return !!parseRepo(
+                        repo.name,
+                        book.code
+                    );
+
+                }
+            );
+
+
+        /*
+            Nếu chưa có game
+            thì không hiện sách.
+        */
+
+        if(!hasGames){
+
+            return;
+
+        }
+
+
+        const button =
+            document.createElement(
+                "button"
+            );
+
+
+        button.className =
+            "book-btn";
+
+
+        button.innerHTML = `
+
+            <span class="book-icon">
+                📘
+            </span>
+
+            <span class="book-name">
+                ${book.name}
+            </span>
+
+            <span class="book-arrow">
+                ›
+            </span>
+
+        `;
+
+
+        button.onclick =
+            function(){
+
+                showBook(book);
+
+            };
+
+
+        bookList.appendChild(
+            button
+        );
+
+    });
+
+
+    /*
+        Không có sách.
+    */
+
+    if(
+        bookList.children.length === 0
+    ){
+
+        content.innerHTML = `
+
+            <div class="empty">
+
+                No games found.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+content.appendChild(
+    bookList
+);
+
+
+
+// =====================================================
+// STARTER TEST - LINK ĐẶC BIỆT
+// =====================================================
+
+const starterTest =
+    document.createElement("a");
+
+starterTest.style.marginTop = "11px";
+
+starterTest.className =
+    "book-btn";
+
+starterTest.innerHTML = `
+
+    <span class="book-icon">
+        📝
+    </span>
+
+    <span class="book-name">
+        Starter Test
+    </span>
+
+    <span class="book-arrow">
+        ›
+    </span>
+
+`;
+
+starterTest.href =
+    `https://${USERNAME}.github.io/teststarter1/`;
+
+starterTest.target =
+    "_blank";
+
+starterTest.rel =
+    "noopener noreferrer";
+
+content.appendChild(
+    starterTest
+);
+
+}
+
+
+/* =====================================================
+   SHOW BOOK
+===================================================== */
+
+function showBook(book){
+
+    currentBook = book;
+
+    history.pushState(
+        {
+            page: "book",
+            book: book.code
+        },
+        "",
+        "#book-" + book.code
+    );
+
+
+    document.getElementById(
+        "subtitle"
+    ).innerText =
+        book.name;
+
+
+    const content =
+        document.getElementById(
+            "content"
+        );
+
+
+    content.innerHTML = "";
+
+
+    /* =================================================
+       BACK
+    ================================================= */
+
+    const backButton =
+        document.createElement(
+            "button"
+        );
+
+
+    backButton.className =
+        "back-btn";
+
+
+    backButton.innerHTML =
+        "← Back";
+
+
+    backButton.onclick =
+    function(){
+
+        history.back();
+
+    };
+
+
+    content.appendChild(
+        backButton
+    );
+
+
+    /* =================================================
+       TITLE
+    ================================================= */
+
+    const title =
+        document.createElement(
+            "div"
+        );
+
+
+    title.className =
+        "book-title";
+
+
+    title.innerText =
+        "📘 " + book.name;
+
+
+    content.appendChild(
+        title
+    );
+
+
+    /* =================================================
+       READ REPOSITORIES
+    ================================================= */
+
+    const parsedRepos = [];
+
+
+    allRepos.forEach(repo => {
+
+
+        if(
+            !repo ||
+            !repo.name
+        ){
+
+            return;
+
+        }
+
+
+        const parsed =
+            parseRepo(
+                repo.name,
+                book.code
+            );
+
+
+        if(parsed){
+
+            parsedRepos.push(
+                parsed
+            );
+
+        }
+
+    });
+
+
+    /* =================================================
+       GROUP BY UNIT
+    ================================================= */
+
+    const units = {};
+
+
+    parsedRepos.forEach(item => {
+
+
+        /*
+            Dùng chính tên Unit làm key.
+
+            Ví dụ:
+
+            10
+            10a
+            10b
+            30
+            50
+        */
+
+        const key =
+            item.unit.toLowerCase();
+
+
+        if(!units[key]){
+
+            units[key] = {
+
+                unit:
+                    item.unit,
+
+                unitNumber:
+                    item.unitNumber,
+
+                exercises:{}
+
+            };
+
+        }
+
+
+        /*
+            Nếu cùng Unit + Exercise
+            thì repo sau sẽ thay repo trước.
+        */
+
+        units[key]
+            .exercises[
+                item.exercise
+            ] =
+                item.repo;
+
+    });
+
+
+    /* =================================================
+       SORT
+    ================================================= */
+
+    const sortedUnits =
+        Object.values(
+            units
+        ).sort(
+            sortUnits
+        );
+
+
+    /* =================================================
+       UNIT LIST
+    ================================================= */
+
+    const unitList =
+        document.createElement(
+            "div"
+        );
+
+
+    unitList.className =
+        "unit-list";
+
+
+    sortedUnits.forEach(unit => {
+
+
+        /* =============================================
+           UNIT ROW
+        ============================================= */
+
+        const row =
+            document.createElement(
+                "div"
+            );
+
+
+        row.className =
+            "unit-row";
+
+
+        /* =============================================
+           UNIT NAME
+        ============================================= */
+
+        const unitName =
+            document.createElement(
+                "div"
+            );
+
+
+        unitName.className =
+            "unit-name";
+
+
+        unitName.innerText =
+
+            "Unit " +
+
+            unit.unit.toUpperCase();
+
+
+        row.appendChild(
+            unitName
+        );
+
+
+        /* =============================================
+           EXERCISES
+        ============================================= */
+
+        const exerciseButtons =
+            document.createElement(
+                "div"
+            );
+
+
+        exerciseButtons.className =
+            "exercise-buttons";
+
+
+        /*
+            Hiển thị Exercise 1-6.
+        */
+
+        for(
+            let exercise =
+                MIN_EXERCISE;
+
+            exercise <=
+                MAX_EXERCISE;
+
+            exercise++
+        ){
+
+            const repo =
+                unit.exercises[
+                    exercise
+                ];
+
+
+            /*
+                Không có repo
+                thì không hiện nút.
+            */
+
+            if(!repo){
+
+                continue;
+
+            }
+
+
+            const link =
+                document.createElement(
+                    "a"
+                );
+
+
+            link.className =
+                "exercise-btn";
+
+
+            link.innerText =
+                exercise;
+
+
+            /*
+                GitHub Pages
+            */
+
+            link.href =
+
+                `https://${USERNAME}` +
+                `.github.io/` +
+                `${repo}/`;
+
+
+            /*
+                Mở tab mới.
+            */
+
+            link.target =
+                "_blank";
+
+
+            link.rel =
+                "noopener noreferrer";
+
+
+            exerciseButtons.appendChild(
+                link
+            );
+
+        }
+
+
+        row.appendChild(
+            exerciseButtons
+        );
+
+
+        unitList.appendChild(
+            row
+        );
+
+    });
+
+
+    /* =================================================
+       EMPTY
+    ================================================= */
+
+    if(
+        sortedUnits.length === 0
+    ){
+
+        const empty =
+            document.createElement(
+                "div"
+            );
+
+
+        empty.className =
+            "empty";
+
+
+        empty.innerText =
+            "No games found for this book.";
+
+
+        unitList.appendChild(
+            empty
+        );
+
+    }
+
+
+    content.appendChild(
+        unitList
+    );
+
+}
+
+
+/* =====================================================
+   LOAD
+===================================================== */
+
+async function load(){
+
+    const content =
+        document.getElementById(
+            "content"
+        );
+
+
+    try{
+
+        allRepos =
+            await fetchAllRepos();
+
+
+        /*
+            Chỉ lấy repo public.
+        */
+
+        allRepos =
+            allRepos.filter(
+                repo => {
+
+                    if(
+                        !repo ||
+                        !repo.name
+                    ){
+
+                        return false;
+
+                    }
+
+
+                    if(repo.private){
+
+                        return false;
+
+                    }
+
+
+                    /*
+                        Bỏ repository chính
+                        của GitHub Pages.
+                    */
+
+                    if(
+                        repo.name
+                            .toLowerCase() ===
+                        `${USERNAME}.github.io`
+                    ){
+
+                        return false;
+
+                    }
+
+
+                    return true;
+
+                }
+            );
+
+
+        /*
+            Hiển thị sách.
+        */
+
+        showBooks();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+
+        content.innerHTML = `
+
+            <div class="error">
+
+                Không thể tải danh sách game.
+
+                <br><br>
+
+                Please try again later.
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+/* =====================================================
+   BROWSER BACK BUTTON
+===================================================== */
+
+history.replaceState(
+    { page: "login" },
+    "",
+    "#login"
+);
+
+
+window.addEventListener("popstate", function(event){
+
+    /* ===============================
+       BACK → LOGIN
+    =============================== */
+
+    if(!event.state || event.state.page === "login"){
+
+        document.getElementById(
+            "welcome-screen"
+        ).style.display = "flex";
+
+        return;
+
+    }
+
+
+    /* ===============================
+       BACK → CHỌN SÁCH
+    =============================== */
+
+    if(event.state.page === "books"){
+
+        document.getElementById(
+            "welcome-screen"
+        ).style.display = "none";
+
+        showBooks();
+
+        return;
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>
