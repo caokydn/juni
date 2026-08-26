@@ -375,24 +375,97 @@ body{
    UNIT ROW
 ===================================================== */
 
-.unit-row{
+/* =====================================================
+   VOCABULARY
+===================================================== */
 
-    display:flex;
+.vocab-list{
 
-    align-items:center;
+    margin-top:7px;
 
-    gap:10px;
+    margin-left:78px;
 
-    min-height:49px;
+    padding:5px 8px 6px;
 
-    padding:8px 9px;
+    font-size:12px;
+
+    line-height:1.7;
+
+    color:#64748b;
+
+    display:none;
+
+    flex-wrap:wrap;
+
+    gap:0 8px;
+}
+
+
+.vocab-word{
+
+    white-space:nowrap;
+
+}
+
+
+.vocab-word::after{
+
+    content:",";
+}
+
+
+.vocab-word:last-child::after{
+
+    content:"";
+}
+
+
+/* =====================================================
+   UNIT CONTAINER
+===================================================== */
+
+.unit-container{
+
+    display:block;
+
+}
+
+
+/* =====================================================
+   VOCABULARY SHOW/HIDE BUTTON
+===================================================== */
+
+.vocab-toggle{
+
+    margin-top:12px;
+
+    margin-bottom:10px;
+
+    padding:8px 13px;
+
+    border:none;
+
+    border-radius:10px;
 
     background:white;
 
-    border-radius:11px;
+    color:#2563eb;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    cursor:pointer;
 
     box-shadow:
-        0 2px 6px rgba(0,0,0,0.10);
+        0 2px 6px rgba(0,0,0,0.12);
+}
+
+
+.vocab-toggle:hover{
+
+    background:#eff6ff;
+
 }
 
 
@@ -892,6 +965,16 @@ body{
         font-size:13px;
     }
 
+.vocab-list{
+
+    margin-left:65px;
+
+    font-size:11px;
+
+    line-height:1.7;
+
+}
+
 
     .exercise-buttons{
 
@@ -1203,7 +1286,11 @@ const MAX_EXERCISE = 6;
 
 let allRepos = [];
 
+let gamesData = {};
+
 let currentBook = null;
+
+let vocabularyVisible = false;
 
 
 /* =====================================================
@@ -1705,6 +1792,7 @@ content.appendChild(
 function showBook(book){
 
     currentBook = book;
+vocabularyVisible = false;
 
     history.pushState(
         {
@@ -1783,6 +1871,55 @@ function showBook(book){
     content.appendChild(
         title
     );
+
+/* =================================================
+   VOCABULARY TOGGLE
+================================================= */
+
+const vocabToggle =
+    document.createElement(
+        "button"
+    );
+
+vocabToggle.className =
+    "vocab-toggle";
+
+vocabToggle.innerText =
+    "📚 Show Vocabulary";
+
+
+vocabToggle.onclick =
+function(){
+
+    vocabularyVisible =
+        !vocabularyVisible;
+
+
+    vocabToggle.innerText =
+        vocabularyVisible
+            ? "📚 Hide Vocabulary"
+            : "📚 Show Vocabulary";
+
+
+    document
+        .querySelectorAll(
+            ".vocab-list"
+        )
+        .forEach(vocab => {
+
+            vocab.style.display =
+                vocabularyVisible
+                    ? "flex"
+                    : "none";
+
+        });
+
+};
+
+
+content.appendChild(
+    vocabToggle
+);
 
 
     /* =================================================
@@ -1913,14 +2050,22 @@ function showBook(book){
            UNIT ROW
         ============================================= */
 
-        const row =
-            document.createElement(
-                "div"
-            );
+const unitContainer =
+    document.createElement(
+        "div"
+    );
+
+unitContainer.className =
+    "unit-container";
 
 
-        row.className =
-            "unit-row";
+const row =
+    document.createElement(
+        "div"
+    );
+
+row.className =
+    "unit-row";
 
 
         /* =============================================
@@ -2039,14 +2184,101 @@ function showBook(book){
         }
 
 
-        row.appendChild(
-            exerciseButtons
-        );
+row.appendChild(
+    exerciseButtons
+);
 
 
-        unitList.appendChild(
-            row
+/* =================================================
+   VOCABULARY
+================================================= */
+
+const vocabList =
+    document.createElement(
+        "div"
+    );
+
+vocabList.className =
+    "vocab-list";
+
+
+/*
+    Repo số 1 là nguồn vocabulary.
+
+    Ví dụ:
+
+    Unit 1
+    → 1ff01
+
+    Unit 10
+    → 1ff101
+
+    Unit 10a
+    → 1ff10a1
+*/
+
+
+const vocabRepo =
+    unit.exercises[1];
+
+
+if(vocabRepo){
+
+    const vocabData =
+        gamesData[vocabRepo];
+
+
+    if(
+        vocabData &&
+        Array.isArray(
+            vocabData.vocab
+        )
+    ){
+
+        vocabData.vocab.forEach(
+            word => {
+
+                const wordElement =
+                    document.createElement(
+                        "span"
+                    );
+
+                wordElement.className =
+                    "vocab-word";
+
+                wordElement.innerText =
+                    word;
+
+                vocabList.appendChild(
+                    wordElement
+                );
+
+            }
         );
+
+    }
+
+}
+
+
+/*
+    Đưa Unit + Vocabulary
+    vào cùng một container.
+*/
+
+unitContainer.appendChild(
+    row
+);
+
+
+unitContainer.appendChild(
+    vocabList
+);
+
+
+unitList.appendChild(
+    unitContainer
+);
 
     });
 
@@ -2128,27 +2360,39 @@ async function load(){
             await response.json();
 
 
-        /*
-            games.json chỉ chứa
-            tên repository.
+/*
+    games.json mới có dạng:
 
-            Chuyển thành dạng:
+    {
+        "1ff01": {
+            "vocab": [...]
+        },
 
-            {
-                name: "funstarter124"
-            }
+        "1ff02": {
+            "vocab": []
+        }
+    }
+*/
 
-            để phần code cũ
-            có thể tiếp tục sử dụng.
-        */
 
-        allRepos =
-            data.map(
-                name => ({
-                    name:name,
-                    private:false
-                })
-            );
+gamesData = data;
+
+
+/*
+    Chuyển games.json thành
+    danh sách repository để
+    phần code hiện tại tiếp tục dùng.
+*/
+
+allRepos =
+    Object.keys(
+        gamesData
+    ).map(
+        name => ({
+            name:name,
+            private:false
+        })
+    );
 
 
         /*
