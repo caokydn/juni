@@ -827,6 +827,32 @@ border:2px solid #4ade80;
 }
 
 
+.login-form input{
+
+    width:100%;
+
+    margin-top:16px;
+
+    padding:14px 16px;
+
+    border:
+        2px solid #dbeafe;
+
+    border-radius:14px;
+
+    background:#f8fafc;
+
+    color:#0f172a;
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:
+        border .2s,
+        box-shadow .2s,
+        background .2s;
+}
 
 
 .login-form input:focus{
@@ -839,67 +865,7 @@ border:2px solid #4ade80;
         0 0 0 4px rgba(96,165,250,.18);
 }
 
-.username-wrapper{
-    position:relative;
-    width:100%;
-}
 
-.username-wrapper input{
-
-    width:100%;
-
-    padding:13px 55px 13px 15px;
-
-    border:2px solid #cbd5e1;
-
-    border-radius:14px;
-
-    background:#f8fafc;
-
-    color:#0f172a;
-
-    font-size:16px;
-
-    outline:none;
-
-    height:50px;
-}
-
-.eye-button{
-    position:absolute;
-
-    right:10px;
-    top:50%;
-
-    transform:translateY(-50%);
-
-    width:38px;
-    height:38px;
-
-    border:none;
-    border-radius:10px;
-
-    background:transparent;
-
-    font-size:20px;
-
-    cursor:pointer;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    opacity:.65;
-
-    transition:
-        background .15s,
-        opacity .15s;
-}
-
-.eye-button:hover{
-    background:#eff6ff;
-    opacity:1;
-}
 /* =====================================================
    LOGIN BUTTON
 ===================================================== */
@@ -1086,26 +1052,13 @@ border:2px solid #4ade80;
 
 
 
-<div class="username-wrapper">
-
-    <input
-        type="password"
-        id="usernameInput"
-        placeholder=""
-        autocomplete="off"
-        onkeydown="if(event.key === 'Enter') login();"
-    >
-
-    <button
-        type="button"
-        class="eye-button"
-        onclick="toggleUsername()"
-        aria-label="Show username"
-    >
-        👁️
-    </button>
-
-</div>
+<input
+    type="text"
+    id="usernameInput"
+    placeholder="Enter username"
+    autocomplete="off"
+    onkeydown="if(event.key === 'Enter') login();"
+>
 
 
             <button onclick="login()">
@@ -1226,43 +1179,6 @@ const TEACHERNAMES = [
 /* =====================================================
    LOGIN
 ===================================================== */
-function toggleUsername(){
-
-    const input =
-        document.getElementById(
-            "usernameInput"
-        );
-
-    const button =
-        document.querySelector(
-            ".eye-button"
-        );
-
-    if(input.type === "password"){
-
-        input.type = "text";
-
-        button.innerText = "🙈";
-
-        button.setAttribute(
-            "aria-label",
-            "Hide username"
-        );
-
-    }else{
-
-        input.type = "password";
-
-        button.innerText = "👁️";
-
-        button.setAttribute(
-            "aria-label",
-            "Show username"
-        );
-
-    }
-
-}
 
 function login(){
 
@@ -1302,7 +1218,6 @@ if(
 
 }
 
-currentTeacherName = input;
 
     /*
        Login successful
@@ -1404,7 +1319,6 @@ let gamesData = {};
 let currentBook = null;
 
 let vocabularyVisible = false;
-let currentTeacherName = "";
 
 
 /* =====================================================
@@ -1874,7 +1788,7 @@ starterTest.innerHTML = `
     </span>
 
     <span class="book-name">
-        CAMBRIDGE STARTER Test
+        Starter Test
     </span>
 
     <span class="book-arrow">
@@ -2561,44 +2475,15 @@ window.addEventListener("popstate", function(event){
        BACK → LOGIN
     =============================== */
 
-if(!event.state || event.state.page === "login"){
+    if(!event.state || event.state.page === "login"){
 
-    const input =
         document.getElementById(
-            "usernameInput"
-        );
+            "welcome-screen"
+        ).style.display = "flex";
 
-    const eyeButton =
-        document.querySelector(
-            ".eye-button"
-        );
+        return;
 
-
-    document.getElementById(
-        "welcome-screen"
-    ).style.display = "flex";
-
-
-    // Giữ lại username
-    input.value = currentTeacherName;
-
-
-    // Luôn che username khi quay lại Login
-    input.type = "password";
-
-
-    // Đưa nút mắt về trạng thái đang che
-    eyeButton.innerText = "👁️";
-
-    eyeButton.setAttribute(
-        "aria-label",
-        "Show username"
-    );
-
-
-    return;
-
-}
+    }
 
 
     /* ===============================
