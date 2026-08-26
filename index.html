@@ -375,6 +375,21 @@ body{
    UNIT ROW
 ===================================================== */
 
+.unit-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    width:100%;
+
+    padding:6px 8px;
+
+}
+
+
 /* =====================================================
    VOCABULARY
 ===================================================== */
@@ -509,9 +524,9 @@ body{
 
 .exercise-btn{
 
-    width:33px;
+    width:34px;
 
-    height:33px;
+    height:34px;
 
     display:flex;
 
@@ -519,38 +534,42 @@ body{
 
     justify-content:center;
 
-    border-radius:9px;
+    border-radius:10px;
 
     text-decoration:none;
 
-    background:#34d399;
+    background:#dbeafe;
 
-    color:#0f172a;
+    color:#2563eb;
 
     font-size:14px;
 
     font-weight:800;
 
+    border:2px solid #bfdbfe;
+
     box-shadow:
-        0 2px 4px rgba(0,0,0,0.14);
+        0 2px 5px rgba(37,99,235,0.12);
 
     transition:
         transform .15s,
         background .15s,
+        color .15s,
         box-shadow .15s;
 }
 
-
 .exercise-btn:hover{
 
-    background:#22c55e;
+    background:#2563eb;
+
+    color:white;
 
     transform:
         translateY(-2px)
         scale(1.05);
 
     box-shadow:
-        0 4px 8px rgba(0,0,0,0.18);
+        0 5px 10px rgba(37,99,235,0.22);
 }
 
 
