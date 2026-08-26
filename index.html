@@ -864,7 +864,67 @@ border:2px solid #4ade80;
     box-shadow:
         0 0 0 4px rgba(96,165,250,.18);
 }
+/* =====================================================
+   USERNAME SHOW / HIDE
+===================================================== */
 
+.username-wrapper{
+
+    position:relative;
+
+    width:100%;
+
+    margin-top:16px;
+}
+
+
+.username-wrapper input{
+
+    margin-top:0;
+
+    padding-right:52px;
+}
+
+
+#usernameToggle{
+
+    position:absolute;
+
+    right:8px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:38px;
+
+    height:38px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:transparent;
+
+    color:#64748b;
+
+    font-size:19px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+
+#usernameToggle:hover{
+
+    background:#eff6ff;
+
+}
 
 /* =====================================================
    LOGIN BUTTON
@@ -1052,13 +1112,26 @@ border:2px solid #4ade80;
 
 
 
-<input
-    type="text"
-    id="usernameInput"
-    placeholder="Enter username"
-    autocomplete="off"
-    onkeydown="if(event.key === 'Enter') login();"
->
+<div class="username-wrapper">
+
+    <input
+        type="text"
+        id="usernameInput"
+        placeholder="Enter username"
+        autocomplete="off"
+        onkeydown="if(event.key === 'Enter') login();"
+    >
+
+    <button
+        type="button"
+        id="usernameToggle"
+        onclick="toggleUsernameVisibility()"
+        aria-label="Show username"
+    >
+        👁
+    </button>
+
+</div>
 
 
             <button onclick="login()">
@@ -1180,17 +1253,373 @@ const TEACHERNAMES = [
    LOGIN
 ===================================================== */
 
-function login(){
+/* =====================================================
+   USERNAME DISPLAY
+===================================================== */
+
+let usernameVisible = false;
+
+let usernameValue = "";
+
+let usernameTimer = null;
+
+
+/* =====================================================
+   UPDATE USERNAME DISPLAY
+===================================================== */
+
+function updateUsernameDisplay(
+    showLastCharacter = false
+){
 
     const input =
-        document
-            .getElementById("usernameInput")
-            .value
-            .trim();
+        document.getElementById(
+            "usernameInput"
+        );
+
+    if(!input){
+        return;
+    }
+
+
+    /*
+        Nếu đang hiện username
+        thì hiển thị toàn bộ.
+    */
+
+    if(usernameVisible){
+
+        input.value =
+            usernameValue;
+
+        return;
+
+    }
+
+
+    /*
+        Không có username
+    */
+
+    if(!usernameValue){
+
+        input.value = "";
+
+        return;
+
+    }
+
+
+    /*
+        Ẩn username.
+
+        Nếu vừa gõ ký tự cuối
+        thì giữ ký tự cuối sáng.
+        
+        Ví dụ:
+
+        c
+        ck
+        cky
+
+        sẽ hiển thị:
+
+        c
+        •k
+        ••y
+    */
+
+    if(showLastCharacter){
+
+        const hiddenLength =
+            Math.max(
+                0,
+                usernameValue.length - 1
+            );
+
+        input.value =
+            "•".repeat(
+                hiddenLength
+            ) +
+            usernameValue.slice(-1);
+
+    }
+    else{
+
+        input.value =
+            "•".repeat(
+                usernameValue.length
+            );
+
+    }
+
+}
+
+
+/* =====================================================
+   USERNAME INPUT
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const input =
+            document.getElementById(
+                "usernameInput"
+            );
+
+
+        if(!input){
+            return;
+        }
+
+
+        input.addEventListener(
+            "input",
+            function(){
+
+                /*
+                    Nếu đang hiện username
+                    thì lấy trực tiếp giá trị.
+                */
+
+                if(usernameVisible){
+
+                    usernameValue =
+                        input.value;
+
+                    return;
+
+                }
+
+
+                /*
+                    Khi đang ẩn:
+
+                    input.value có thể là
+                    ••• hoặc ••k
+
+                    nên không thể lấy trực tiếp.
+
+                    Ta xác định thao tác
+                    của người dùng.
+                */
+
+                const displayed =
+                    input.value;
+
+
+                /*
+                    Nếu người dùng xóa
+                    */
+
+                if(
+                    displayed.length <
+                    usernameValue.length
+                ){
+
+                    usernameValue =
+                        usernameValue.slice(
+                            0,
+                            displayed.length
+                        );
+
+                }
+
+
+                /*
+                    Nếu người dùng đang gõ
+                    thêm ký tự.
+                */
+
+                else if(
+                    displayed.length >
+                    usernameValue.length
+                ){
+
+                    const newCharacter =
+                        displayed.slice(-1);
+
+                    usernameValue +=
+                        newCharacter;
+
+                }
+
+
+                /*
+                    Nếu người dùng sửa
+                    hoặc paste text.
+                */
+
+                else{
+
+                    /*
+                        Trường hợp paste
+                        hoặc thay đổi bất thường,
+                        lấy lại giá trị hiển thị.
+                    */
+
+                    if(
+                        !displayed.includes("•")
+                    ){
+
+                        usernameValue =
+                            displayed;
+
+                    }
+
+                }
+
+
+                /*
+                    Hiển thị:
+
+                    c
+                    •k
+                    ••y
+                */
+
+                updateUsernameDisplay(true);
+
+
+                /*
+                    Sau một khoảng rất ngắn,
+                    ký tự cuối cũng chuyển thành •.
+                */
+
+                clearTimeout(
+                    usernameTimer
+                );
+
+
+                usernameTimer =
+                    setTimeout(
+                        function(){
+
+                            updateUsernameDisplay(
+                                false
+                            );
+
+                        },
+                        900
+                    );
+
+            }
+
+        );
+
+
+        /*
+            Khi người dùng focus vào ô
+            nhưng username đang ẩn,
+            vẫn giữ nguyên trạng thái ẩn.
+        */
+
+        input.addEventListener(
+            "focus",
+            function(){
+
+                if(!usernameVisible){
+
+                    updateUsernameDisplay(
+                        false
+                    );
+
+                }
+
+            }
+
+        );
+
+    }
+);
+
+
+/* =====================================================
+   SHOW / HIDE USERNAME
+===================================================== */
+
+function toggleUsernameVisibility(){
+
+    const input =
+        document.getElementById(
+            "usernameInput"
+        );
+
+    const button =
+        document.getElementById(
+            "usernameToggle"
+        );
+
+
+    usernameVisible =
+        !usernameVisible;
+
+
+    if(usernameVisible){
+
+        /*
+            Hiện username thật.
+        */
+
+        input.value =
+            usernameValue;
+
+
+        button.innerText =
+            "🙈";
+
+        button.setAttribute(
+            "aria-label",
+            "Hide username"
+        );
+
+    }
+    else{
+
+        /*
+            Ẩn username.
+        */
+
+        input.value =
+            "•".repeat(
+                usernameValue.length
+            );
+
+
+        button.innerText =
+            "👁";
+
+        button.setAttribute(
+            "aria-label",
+            "Show username"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+function login(){
+
+    /*
+        Dùng username thật,
+        không dùng chuỗi ••• đang hiển thị.
+    */
+
+    const input =
+        usernameValue.trim();
+
 
     const error =
-        document
-            .getElementById("loginError");
+        document.getElementById(
+            "loginError"
+        );
 
 
     if(!input){
@@ -1203,37 +1632,54 @@ function login(){
     }
 
 
-if(
-    !TEACHERNAMES.some(
-        username =>
-            username.toLowerCase() ===
-            input.toLowerCase()
-    )
-){
+    /*
+        Không phân biệt hoa / thường.
 
-    error.innerText =
-        "Invalid username.";
+        ck
+        CK
+        cK
+        Ck
 
-    return;
+        đều được chấp nhận
+        nếu TEACHERNAMES có "ck".
+    */
 
-}
+    if(
+        !TEACHERNAMES.some(
+            username =>
+                username.toLowerCase() ===
+                input.toLowerCase()
+        )
+    ){
+
+        error.innerText =
+            "Invalid username.";
+
+        return;
+
+    }
 
 
     /*
-       Login successful
+        Login successful
     */
 
-document
-    .getElementById("welcome-screen")
-    .style.display = "none";
+    document
+        .getElementById(
+            "welcome-screen"
+        )
+        .style.display =
+            "none";
 
-history.pushState(
-    { page: "books" },
-    "",
-    "#books"
-);
 
-load();
+    history.pushState(
+        { page: "books" },
+        "",
+        "#books"
+    );
+
+
+    load();
 
 }
 
@@ -2475,11 +2921,76 @@ window.addEventListener("popstate", function(event){
        BACK → LOGIN
     =============================== */
 
-    if(!event.state || event.state.page === "login"){
+    if(
+        !event.state ||
+        event.state.page === "login"
+    ){
+
+        /*
+            Hiện lại màn hình Login
+        */
 
         document.getElementById(
             "welcome-screen"
-        ).style.display = "flex";
+        ).style.display =
+            "flex";
+
+
+        /*
+            Luôn ẩn username khi quay lại Login.
+        */
+
+        usernameVisible =
+            false;
+
+
+        /*
+            Xóa thông báo lỗi cũ.
+        */
+
+        const error =
+            document.getElementById(
+                "loginError"
+            );
+
+        if(error){
+
+            error.innerText = "";
+
+        }
+
+
+        /*
+            Hiển thị username
+            dưới dạng •••
+        */
+
+        updateUsernameDisplay(
+            false
+        );
+
+
+        /*
+            Đổi icon về 👁
+        */
+
+        const toggle =
+            document.getElementById(
+                "usernameToggle"
+            );
+
+        if(toggle){
+
+            toggle.innerText =
+                "👁";
+
+            toggle.setAttribute(
+                "aria-label",
+                "Show username"
+            );
+
+        }
+
 
         return;
 
