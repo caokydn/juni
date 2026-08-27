@@ -3636,6 +3636,82 @@
   "teststarter1": {
     "vocab": []
   },
+  "thu1": {
+    "vocab": [
+      "doctor",
+      "farmer",
+      "fireman",
+      "housewife",
+      "mum",
+      "nurse",
+      "orange",
+      "pen",
+      "pilot",
+      "police",
+      "postman",
+      "pupil",
+      "teacher",
+      "zookeeper"
+    ]
+  },
+  "thu11": {
+    "vocab": [
+      "bed",
+      "bin",
+      "blanket",
+      "bread",
+      "cupboard",
+      "hot chocolate",
+      "juice",
+      "meat",
+      "milk",
+      "pillow",
+      "rice",
+      "shelf",
+      "tea",
+      "water",
+      "yogurt"
+    ]
+  },
+  "thu21": {
+    "vocab": [
+      "beach",
+      "beautiful",
+      "clean",
+      "dangerous",
+      "dive",
+      "polluted",
+      "safe",
+      "sail",
+      "small",
+      "surf",
+      "tall",
+      "ugly",
+      "wall"
+    ]
+  },
+  "thu31": {
+    "vocab": [
+      "advert",
+      "arrival",
+      "cartoon",
+      "channel",
+      "coin",
+      "departure",
+      "documentary",
+      "fireworks",
+      "hotel",
+      "journey",
+      "luggage",
+      "news",
+      "newspaper",
+      "passenger",
+      "passport",
+      "remote control",
+      "suitcase",
+      "whistle"
+    ]
+  },
   "vetranh1": {
     "vocab": []
   },
