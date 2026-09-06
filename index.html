@@ -1423,6 +1423,45 @@ const WORKLIST = [
 ];
 
 
+/* =====================================================
+   WORKLISTBYDAY
+   Format: "dd/mm: công việc"
+   Nếu có nhiều dòng cùng ngày, dòng đầu tiên sẽ được dùng.
+8 10
+15 17
+22 24
+29 1
+6 8
+13 15 
+20 22
+27 29
+
+===================================================== */
+
+const WORKLISTBYDAY = [
+
+    "06/09: Quét 3 phòng + quét mạng nhện 3 phòng",
+    "08/09: Quét 3 phòng + quét mạng nhện 3 phòng",
+    "10/09: Quét 3 phòng + lau 2 hàng ghế sau phòng 2 + kệ tủ phòng 2",
+    "15/09: Quét 3 phòng + lau 2 tủ phòng 1 + kệ phòng 1",
+    "17/09: Quét 3 phòng + ghế cam, bàn trắng phòng tiếp khách",
+    "22/09: Quét 3 phòng + quét mạng nhện 3 phòng",
+    "24/09: Quét 3 phòng + lau 2 tủ phòng 1 + kệ phòng 1",
+    "29/09: Quét 3 phòng + lau 2 hàng ghế sau phòng 2 + kệ tủ phòng 2",
+
+
+    "01/10: Quét 3 phòng + ghế cam, bàn trắng phòng tiếp khách",
+    "06/10: Quét 3 phòng + quét mạng nhện 3 phòng",
+    "08/10: Quét 3 phòng + lau 2 hàng ghế sau phòng 2 + kệ tủ phòng 2",
+    "13/10: Quét 3 phòng + ghế cam, bàn trắng phòng tiếp khách",
+    "15/10: Quét 3 phòng + lau 2 tủ phòng 1 + kệ phòng 1",
+    "20/10: Quét 3 phòng + quét mạng nhện 3 phòng",
+    "22/10: Quét 3 phòng + ghế cam, bàn trắng phòng tiếp khách",
+    "27/10: Quét 3 phòng + lau 2 tủ phòng 1 + kệ phòng 1",
+    "29/10: Quét 3 phòng + quét mạng nhện 3 phòng",
+];
+
+
 
 /* =====================================================
    DAY NAMES
@@ -2028,8 +2067,24 @@ function showTodayWorks(){
 
 
 
+    const day =
+        String(today.getDate()).padStart(2, "0");
+
+    const month =
+        String(today.getMonth() + 1).padStart(2, "0");
+
+    const todayDate =
+        day + "/" + month;
+
+    const specialWork =
+        WORKLISTBYDAY.find(
+            item => item.startsWith(todayDate + ":")
+        );
+
     const work =
-        WORKLIST[dayIndex];
+        specialWork !== undefined
+            ? specialWork
+            : WORKLIST[dayIndex];
 
 
 
