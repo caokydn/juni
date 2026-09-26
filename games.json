@@ -2057,18 +2057,18 @@
   },
   "coha1": {
     "vocab": [
-      "buồng chuối",
-      "buổi sáng",
-      "con chuột",
-      "con suối",
-      "cuộn chỉ",
-      "ngọn đuốc",
-      "quả bưởi",
-      "quả chuông",
-      "quả muỗm",
-      "tươi cười",
-      "viên thuốc",
-      "ốc bươu"
+      "bé có ô đỏ",
+      "bê có cỏ",
+      "bò",
+      "bố bê bể cá",
+      "bố đỡ bé",
+      "bờ đê",
+      "cá cờ",
+      "cô bé",
+      "cỏ",
+      "cổ cò",
+      "đa đa",
+      "đá dế"
     ]
   },
   "coha11": {
@@ -2115,6 +2115,9 @@
     "vocab": []
   },
   "coha6": {
+    "vocab": []
+  },
+  "coha7": {
     "vocab": []
   },
   "dongtu1": {
@@ -3158,7 +3161,73 @@
       "tomato"
     ]
   },
+  "junior11": {
+    "vocab": [
+      "ball",
+      "car",
+      "cat",
+      "dog",
+      "doll",
+      "puzzle",
+      "teddy bear"
+    ]
+  },
+  "junior12": {
+    "vocab": []
+  },
+  "junior13": {
+    "vocab": []
+  },
+  "junior14": {
+    "vocab": []
+  },
+  "junior15": {
+    "vocab": []
+  },
+  "junior16": {
+    "vocab": []
+  },
+  "junior17": {
+    "vocab": []
+  },
   "junior2": {
+    "vocab": []
+  },
+  "junior21": {
+    "vocab": [
+      "bag",
+      "bird",
+      "black",
+      "brown",
+      "door",
+      "grey",
+      "orange",
+      "pen",
+      "pencil",
+      "pink",
+      "purple",
+      "rubber",
+      "ruler",
+      "white",
+      "window"
+    ]
+  },
+  "junior22": {
+    "vocab": []
+  },
+  "junior23": {
+    "vocab": []
+  },
+  "junior24": {
+    "vocab": []
+  },
+  "junior25": {
+    "vocab": []
+  },
+  "junior26": {
+    "vocab": []
+  },
+  "junior27": {
     "vocab": []
   },
   "junior3": {
