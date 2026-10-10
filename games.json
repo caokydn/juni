@@ -3178,9 +3178,6 @@
   "gioitu6": {
     "vocab": []
   },
-  "home": {
-    "vocab": []
-  },
   "home1": {
     "vocab": []
   },
@@ -3189,15 +3186,17 @@
   },
   "junior1": {
     "vocab": [
-      "blond",
-      "brown",
-      "curly",
-      "grapes",
-      "long",
-      "pineapple",
-      "short",
-      "straight",
-      "tomato"
+      "arm",
+      "doll",
+      "ear",
+      "egg",
+      "face",
+      "finger",
+      "goat",
+      "hat",
+      "kite",
+      "leg",
+      "nose"
     ]
   },
   "junior11": {
@@ -3289,6 +3288,9 @@
     "vocab": []
   },
   "junior6": {
+    "vocab": []
+  },
+  "junior7": {
     "vocab": []
   },
   "kid01": {
