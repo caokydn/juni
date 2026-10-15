@@ -760,7 +760,27 @@
     "vocab": []
   },
   "2ff31": {
-    "vocab": []
+    "vocab": [
+      "bed",
+      "behind",
+      "between",
+      "bin",
+      "bus",
+      "can",
+      "cannot",
+      "in",
+      "in front of",
+      "mop",
+      "next to",
+      "on",
+      "play football",
+      "play tennis",
+      "ride a bike",
+      "ride a horse",
+      "skate",
+      "skateboard",
+      "under"
+    ]
   },
   "2ff32": {
     "vocab": []
