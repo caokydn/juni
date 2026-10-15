@@ -760,27 +760,7 @@
     "vocab": []
   },
   "2ff31": {
-    "vocab": [
-      "bed",
-      "behind",
-      "between",
-      "bin",
-      "bus",
-      "can",
-      "cannot",
-      "in",
-      "in front of",
-      "mop",
-      "next to",
-      "on",
-      "play football",
-      "play tennis",
-      "ride a bike",
-      "ride a horse",
-      "skate",
-      "skateboard",
-      "under"
-    ]
+    "vocab": []
   },
   "2ff32": {
     "vocab": []
@@ -1448,7 +1428,26 @@
     "vocab": []
   },
   "3ff71": {
-    "vocab": []
+    "vocab": [
+      "actor",
+      "always",
+      "cinema",
+      "clown",
+      "concert",
+      "film",
+      "house",
+      "library",
+      "museum",
+      "never",
+      "play",
+      "playground",
+      "shopping mall",
+      "singer",
+      "sometimes",
+      "sport centre",
+      "swimming pool",
+      "theatre"
+    ]
   },
   "3ff72": {
     "vocab": []
