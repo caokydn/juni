@@ -2122,24 +2122,29 @@
   },
   "cohat101": {
     "vocab": [
-      "bạn thân",
-      "con chồn",
-      "cún con",
-      "củ sâm",
-      "khăn rằn",
-      "ngọn nến",
-      "nón lá",
-      "quả cam",
-      "quả mận",
-      "sơn ca",
-      "tăm tre",
-      "đèn pin"
+      "doctor",
+      "farmer",
+      "fireman",
+      "housewife",
+      "mum",
+      "nurse",
+      "orange",
+      "pen",
+      "pilot",
+      "police",
+      "postman",
+      "pupil",
+      "teacher",
+      "zookeeper"
     ]
   },
   "cohat102": {
     "vocab": []
   },
   "cohat103": {
+    "vocab": []
+  },
+  "cohat104": {
     "vocab": []
   },
   "cohaT41": {
@@ -2310,18 +2315,20 @@
   },
   "cohat91": {
     "vocab": [
-      "bạn thân",
-      "con chồn",
-      "cún con",
-      "củ sâm",
-      "khăn rằn",
-      "ngọn nến",
-      "nón lá",
-      "quả cam",
-      "quả mận",
-      "sơn ca",
-      "tăm tre",
-      "đèn pin"
+      "doctor",
+      "farmer",
+      "fireman",
+      "housewife",
+      "mum",
+      "nurse",
+      "orange",
+      "pen",
+      "pilot",
+      "police",
+      "postman",
+      "pupil",
+      "teacher",
+      "zookeeper"
     ]
   },
   "cohat92": {
