@@ -2147,6 +2147,38 @@
   "cohat104": {
     "vocab": []
   },
+  "cohaT111": {
+    "vocab": [
+      "bác sĩ",
+      "bãi cát",
+      "bật lửa",
+      "con mực",
+      "con sóc",
+      "cái cốc",
+      "lá lốt",
+      "máy xúc",
+      "mắc áo",
+      "mặt trời",
+      "quả gấc",
+      "quả nhót",
+      "quả ớt"
+    ]
+  },
+  "cohaT112": {
+    "vocab": []
+  },
+  "cohaT113": {
+    "vocab": []
+  },
+  "cohaT114": {
+    "vocab": []
+  },
+  "cohaT115": {
+    "vocab": []
+  },
+  "cohaT116": {
+    "vocab": []
+  },
   "cohaT41": {
     "vocab": [
       "bí đỏ",
