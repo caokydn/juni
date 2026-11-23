@@ -523,7 +523,23 @@
     "vocab": []
   },
   "2ff11": {
-    "vocab": []
+    "vocab": [
+      "board",
+      "classroom",
+      "computer",
+      "cupboard",
+      "drawer",
+      "goat",
+      "lion",
+      "pencil case",
+      "picture",
+      "sofa",
+      "table",
+      "that is",
+      "these are",
+      "this is",
+      "those are"
+    ]
   },
   "2ff111": {
     "vocab": [
